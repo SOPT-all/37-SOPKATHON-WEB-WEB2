@@ -1,0 +1,42 @@
+name: Auto Assign PR Author
+
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+  issues:
+    types: [opened]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+jobs:
+  assign-creator:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign creator to Issue/PR
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const isPullRequest = context.eventName === 'pull_request';
+            
+            const creator = isPullRequest
+              ? context.payload.pull_request.user.login
+              : context.payload.issue.user.login;
+
+            const issueNumber = context.issue.number;
+
+            if (!creator) {
+              console.log(`Creator not found for event: ${context.eventName}`);
+              return;
+            }
+
+            console.log(`Assigning ${creator} to issue/PR #${issueNumber}`);
+
+            github.rest.issues.addAssignees({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              assignees: [creator]
+            });
