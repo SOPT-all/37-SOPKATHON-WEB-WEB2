@@ -1,0 +1,32 @@
+name: 🔁 Refactor
+description: 코드 구조 개선이나 리팩터링이 필요한 경우 사용하세요.
+title: "[🔁 Refactor] "
+labels: ["🔁 Refactor"]
+body:
+  - type: textarea
+    id: target
+    attributes:
+      label: ✏️ 리팩터링 대상
+      description: 리팩터링하고자 하는 코드 또는 컴포넌트를 명확히 작성해 주세요.
+      placeholder: |
+        예: userInfo 컴포넌트의 상태 분리
+    validations:
+      required: true
+
+  - type: textarea
+    id: plan
+    attributes:
+      label: 📋 개선 방향
+      description: 어떤 부분을 어떻게 리팩터링할 예정인지 간단히 작성해 주세요.
+      placeholder: |
+        예: 반복되는 조건문을 함수로 추출
+    validations:
+      required: true
+
+  - type: textarea
+    id: remarks
+    attributes:
+      label: 📒 Remarks
+      description: 의논하거나 메모하고 싶은 사항이 있다면 작성해 주세요.
+      placeholder: |
+        예: 리팩터링 이후 테스트 코드 추가도 필요할 수 있음
