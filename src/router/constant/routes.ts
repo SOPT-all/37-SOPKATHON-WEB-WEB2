@@ -1,5 +1,5 @@
 export const ROUTES = {
-  HOME: '/',
+  ONBOARDING: '/',
   REVIEW: '/review',
   MATCHING: '/matching',
 };

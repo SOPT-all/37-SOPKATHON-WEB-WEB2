@@ -5,7 +5,7 @@ import { HomePage, ReviewPage } from './lazy';
 
 export const globalRoutes = [
   {
-    path: ROUTES.HOME,
+    path: ROUTES.ONBOARDING,
     element: <HomePage />,
   },
   {
