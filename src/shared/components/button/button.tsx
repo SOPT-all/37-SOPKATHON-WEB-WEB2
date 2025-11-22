@@ -20,7 +20,7 @@ const Button = ({
     : buttonStyle({ size, selected });
 
   return (
-    <button {...props} className={combinedClassName}>
+    <button type='button' {...props} className={combinedClassName}>
       {children}
     </button>
   );
