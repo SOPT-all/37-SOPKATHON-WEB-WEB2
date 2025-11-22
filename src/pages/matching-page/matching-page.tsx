@@ -7,6 +7,7 @@ import MatchingForm from '@/widgets/matching-form/matching-form';
 import type { MatchingFormData } from '@/widgets/matching-form/types';
 
 import * as styles from './matching-page.css';
+import { ROUTES } from '@/router/constant/routes';
 
 const MatchingPage = () => {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ const MatchingPage = () => {
 
       mutate(apiPayload, {
         onSuccess: () => {
-          navigate('/matching/waiting');
+          navigate(ROUTES.MATCHING_PROGRESS);
         },
       });
     },
