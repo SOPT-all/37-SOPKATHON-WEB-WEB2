@@ -1,14 +1,12 @@
-import type { RecipeVariants } from '@vanilla-extract/recipes';
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
 import { buttonStyle } from './button.css';
 
-type ButtonStyleVariants = RecipeVariants<typeof buttonStyle>;
-
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  ButtonStyleVariants & {
-    children: ReactNode;
-  };
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
+  size?: 'medium' | 'large';
+  selected?: boolean;
+}
 
 const Button = ({ children, size, selected, ...props }: ButtonProps) => {
   return (
