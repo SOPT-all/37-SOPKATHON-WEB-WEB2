@@ -7,7 +7,7 @@ export const buttonStyle = recipe({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '100%',
+    width: themeVars.width.full,
     borderRadius: '4px',
     ...themeVars.fontStyles.body2_r_16,
     ':disabled': {
