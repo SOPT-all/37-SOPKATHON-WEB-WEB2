@@ -1,7 +1,9 @@
+import AppBar from '@/shared/components/app-bar/app-bar';
+
 const Home = () => {
   return (
     <>
-      <h1>홈 화면입니다</h1>
+      <AppBar variant='default' />
     </>
   );
 };
