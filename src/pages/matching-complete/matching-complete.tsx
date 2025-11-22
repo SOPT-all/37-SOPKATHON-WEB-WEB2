@@ -4,14 +4,8 @@ import * as s from './matching-complete.css';
 import { useState } from 'react';
 import Button from '@/shared/components/button/button';
 import LabelLang from '@/shared/components/label-lang/label-lang';
-
-const ICE_BREAKING_QUESTIONS = [
-  { label: '질문1', value: '퇴근하고 나만의 루틴이 있다면?' },
-  { label: '질문2', value: '별명이 뭔가요?' },
-  { label: '질문3', value: '가장 좋아하는 음식은 뭔가요?' },
-  { label: '질문4', value: '저의 첫인상은 어떤가요?' },
-  { label: '질문5', value: '오늘 퇴근 후엔 무엇을 하나요?' },
-];
+import { useQuery } from '@tanstack/react-query';
+import { getQuestions } from '@/shared/apis/questions';
 
 const MatchingComplete = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -19,6 +13,12 @@ const MatchingComplete = () => {
   const handleFlip = () => {
     setIsFlipped(true);
   };
+
+  const { data } = useQuery({
+    queryKey: ['questions'],
+    queryFn: getQuestions,
+    enabled: isFlipped,
+  });
 
   return (
     <div className={s.wrapper}>
@@ -76,10 +76,10 @@ const MatchingComplete = () => {
           <FlipCard.Back>
             <div>
               <div className={s.backContainer}>
-                {ICE_BREAKING_QUESTIONS.map((question) => (
-                  <div key={question.label} className={s.questionContainer}>
-                    <LabelLang color='default'>{question.label}</LabelLang>
-                    <p className={s.detailFont}>{question.value}</p>
+                {data?.questions.map((q, idx) => (
+                  <div key={`${idx}-${q}`} className={s.questionContainer}>
+                    <LabelLang color='default'>{`질문${idx + 1}`}</LabelLang>
+                    <p className={s.detailFont}>{q}</p>
                   </div>
                 ))}
               </div>
