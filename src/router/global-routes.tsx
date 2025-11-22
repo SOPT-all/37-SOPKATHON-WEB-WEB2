@@ -1,11 +1,36 @@
-import MatchingComplete from '@/pages/matching-complete/matching-complete';
 import { ROUTES } from './constant/routes';
-import { HomePage } from './lazy';
+import {
+  MatchingComplete,
+  MatchingPage,
+  MatchingProgressPage,
+  OnboardingPage,
+  ReviewPage,
+} from './lazy';
 
 export const globalRoutes = [
   {
-    path: ROUTES.HOME,
-    element: <HomePage />,
+    path: ROUTES.ONBOARDING,
+    element: <OnboardingPage />,
+  },
+  {
+    path: ROUTES.MATCHING,
+    element: <MatchingPage />,
+  },
+  {
+    path: ROUTES.MATCHING_PROGRESS,
+    element: <MatchingProgressPage />,
+  },
+  {
+    path: ROUTES.REVIEW,
+    element: <ReviewPage />,
+  },
+  {
+    path: ROUTES.REVIEW,
+    element: <ReviewPage />,
+  },
+  {
+    path: ROUTES.MATCHING,
+    element: <MatchingPage />,
   },
   { path: ROUTES.MATCHING_COMPLETE, element: <MatchingComplete /> },
 ];

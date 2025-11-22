@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import { useGetOnboardingMutation } from '@/features/onboarding/hooks/use-onboarding';
+import { ROUTES } from '@/router/constant/routes';
 import { OnBoardingLogoIcon } from '@/shared/assets/icons';
 import Button from '@/shared/components/button/button';
 
@@ -19,6 +20,7 @@ const OnBoardingPage = () => {
   const { mutate } = useGetOnboardingMutation();
 
   const handleLoadHistory = () => {
+    navigate(ROUTES.MATCHING);
     mutate(undefined, {
       onSuccess: (response) => {
         navigate('/matching', { state: { data: response } });
@@ -28,7 +30,7 @@ const OnBoardingPage = () => {
   };
 
   const handleNewInfo = () => {
-    navigate('/write');
+    navigate(ROUTES.MATCHING);
   };
   return (
     <div className={pageContainer}>

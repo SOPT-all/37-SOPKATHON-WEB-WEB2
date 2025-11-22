@@ -1,3 +1,7 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { ROUTES } from '@/router/constant/routes';
 import { MainLogo } from '@/shared/assets/icons';
 
 import {
@@ -9,6 +13,15 @@ import {
 } from './matching-progress.css';
 
 const MatchingProgressPage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate(ROUTES.MATCHING_COMPLETE);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [navigate]);
+
   return (
     <div className={pageContainer}>
       <div className={textContainer}>

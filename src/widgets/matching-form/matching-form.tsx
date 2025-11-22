@@ -89,11 +89,12 @@ const MatchingForm = ({ onSubmit, initialData }: MatchingFormProps) => {
       }}
     >
       <section className={styles.sectionStyle}>
-        <h2 className={styles.sectionTitleStyle}>어떤 언어를 사용하시나요?</h2>
+        <h2 className={styles.sectionTitleStyle}>어떤 언어를 사용하시나요?*</h2>
         <div className={styles.optionGridStyle}>
           {LANGUAGE_OPTIONS.map((language) => (
             <Button
               key={`speak-${language}`}
+              type='button'
               size='medium'
               selected={formData.speakLanguages.includes(language)}
               onClick={() => handleLanguageToggle('speakLanguages', language)}
@@ -106,12 +107,13 @@ const MatchingForm = ({ onSubmit, initialData }: MatchingFormProps) => {
 
       <section className={styles.sectionStyle}>
         <h2 className={styles.sectionTitleStyle}>
-          어떤 언어를 배우고 싶으신가요?
+          어떤 언어를 배우고 싶으신가요?*
         </h2>
         <div className={styles.optionGridStyle}>
           {LANGUAGE_OPTIONS.map((language) => (
             <Button
               key={`learn-${language}`}
+              type='button'
               size='medium'
               selected={formData.learnLanguages.includes(language)}
               onClick={() => handleLanguageToggle('learnLanguages', language)}
@@ -124,7 +126,7 @@ const MatchingForm = ({ onSubmit, initialData }: MatchingFormProps) => {
 
       <section className={styles.sectionStyle}>
         <h2 className={styles.sectionTitleStyle}>
-          어디 지역에서 만나고 싶으신가요?
+          어디 지역에서 만나고 싶으신가요?*
         </h2>
         <input
           type='text'
@@ -136,11 +138,12 @@ const MatchingForm = ({ onSubmit, initialData }: MatchingFormProps) => {
       </section>
 
       <section className={styles.sectionStyle}>
-        <h2 className={styles.sectionTitleStyle}>언제 만나고 싶으신가요?</h2>
+        <h2 className={styles.sectionTitleStyle}>언제 만나고 싶으신가요?*</h2>
         <div className={styles.optionGridStyle}>
           {TIME_SLOT_OPTIONS.map((slot) => (
             <Button
               key={slot}
+              type='button'
               size='medium'
               selected={formData.timeSlot === slot}
               onClick={() => handleTimeSlotSelect(slot)}
@@ -153,7 +156,7 @@ const MatchingForm = ({ onSubmit, initialData }: MatchingFormProps) => {
 
       <section className={styles.sectionStyle}>
         <h2 className={styles.sectionTitleStyle}>
-          어떤 직업을 갖고 계신가요? (선택)
+          어떤 일을 하는 분과 만나고 싶나요?
         </h2>
         <input
           type='text'
