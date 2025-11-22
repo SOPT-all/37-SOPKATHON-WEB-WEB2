@@ -9,7 +9,7 @@ interface MatchingFormData {
   learnLanguages: string[];
   region: string;
   timeSlot: string;
-  occupation: string;
+  job: string;
 }
 
 interface MatchingFormProps {
@@ -27,14 +27,16 @@ const TIME_SLOT_OPTIONS = [
   '14:00 ~ 14:30',
 ];
 
+const INITIAL_FORM_DATA: MatchingFormData = {
+  speakLanguages: [],
+  learnLanguages: [],
+  region: '',
+  timeSlot: '',
+  job: '',
+};
+
 const MatchingForm = ({ onSubmit }: MatchingFormProps) => {
-  const [formData, setFormData] = useState<MatchingFormData>({
-    speakLanguages: [],
-    learnLanguages: [],
-    region: '',
-    timeSlot: '',
-    occupation: '',
-  });
+  const [formData, setFormData] = useState<MatchingFormData>(INITIAL_FORM_DATA);
 
   const handleLanguageToggle = useCallback(
     (type: 'speakLanguages' | 'learnLanguages', language: string) => {
@@ -154,8 +156,8 @@ const MatchingForm = ({ onSubmit }: MatchingFormProps) => {
           type='text'
           className={styles.textInputStyle}
           placeholder='직업을 입력해 주세요.'
-          value={formData.occupation}
-          onChange={(e) => handleInputChange('occupation', e.target.value)}
+          value={formData.job}
+          onChange={(e) => handleInputChange('job', e.target.value)}
         />
       </section>
 
