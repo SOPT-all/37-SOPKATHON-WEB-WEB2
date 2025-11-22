@@ -1,5 +1,6 @@
+import MatchingProgressPage from './matching-progress/matching-progress';
 const Home = () => {
-  return <>홈화면</>;
+  return <MatchingProgressPage />;
 };
 
 export default Home;
