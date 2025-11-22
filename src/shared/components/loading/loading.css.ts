@@ -27,8 +27,7 @@ export const textContainer = style({
 });
 
 export const pointText = style({
-  backgroundColor: themeVars.color.black,
-  color: themeVars.color.primary500,
+  color: themeVars.color.primary700,
   borderRadius: '4px',
   padding: '0 0.8rem',
 });
