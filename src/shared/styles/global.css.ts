@@ -37,6 +37,6 @@ export const rootStyle = style({
   minWidth: 'var(--min-width)',
   maxWidth: 'var(--max-width)',
   backgroundColor: 'white',
-  padding: '1.6rem',
+  padding: '0 1.6rem',
   boxShadow: `0 0.8rem 3.2rem ${themeVars.color.gray500}`,
 });

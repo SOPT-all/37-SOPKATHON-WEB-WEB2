@@ -1,5 +1,7 @@
+import OnBoardingPage from './on-boarding/on-boarding';
+
 const Home = () => {
-  return <>홈화면</>;
+  return <OnBoardingPage />;
 };
 
 export default Home;
