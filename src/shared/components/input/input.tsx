@@ -1,12 +1,6 @@
-import type { ChangeEvent } from 'react';
+import type { InputHTMLAttributes } from 'react';
 
-interface InputProps {
-  value?: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  type?: 'text' | 'password' | 'email' | 'number';
-  placeholder?: string;
-  className?: string;
-}
+type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
 const Input = ({
   value,
