@@ -1,6 +1,7 @@
+import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
-import HomePage from '@/pages/HomePage';
+const HomePage = lazy(() => import('@/pages/HomePage'));
 
 import { ROUTES } from './constant/routes';
 import Layout from './layout';
@@ -11,7 +12,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: ROUTES.HOME,
-        element: <HomePage />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <HomePage />
+          </Suspense>
+        ),
       }, // Pages 추가
     ],
   },
