@@ -2,6 +2,7 @@ import { MainLogo } from '@/shared/assets/icons';
 
 import {
   imgContainer,
+  logoStyle,
   pageContainer,
   pointText,
   textContainer,
@@ -14,8 +15,9 @@ const MatchingProgressPage = () => {
         <p className={pointText}>매칭 진행 중</p>
         <p>잠시만 기다려주세요!</p>
       </div>
+
       <div className={imgContainer}>
-        <img src={MainLogo} />
+        <img src={MainLogo} className={logoStyle} alt='로딩 로고' />
       </div>
     </div>
   );

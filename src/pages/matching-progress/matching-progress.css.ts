@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { keyframes, style } from '@vanilla-extract/css';
 
 import { themeVars } from '@/shared/styles/theme.css';
 
@@ -27,9 +27,22 @@ export const pointText = style({
   padding: '0 0.8rem',
 });
 
+const rotateAnimation = keyframes({
+  '0%': { transform: 'rotate(0deg)' },
+  '100%': { transform: 'rotate(360deg)' },
+});
+
 export const imgContainer = style({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  marginTop: '11rem',
+  marginTop: '9rem',
+});
+
+export const logoStyle = style({
+  display: 'block',
+  width: '150px',
+  height: '150px',
+
+  animation: `${rotateAnimation} 2s linear infinite`,
 });
