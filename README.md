@@ -1,73 +1,196 @@
-# React + TypeScript + Vite
+# 🥪 MIDI MATE
+: 짧은 점심시간, 언어 한 스푼
+MIDI MATE는 매일 주어진 점심 시간을 언어 교류의 기회로 바꿔주는 미스터리 런치 매칭 서비스입니다.
+<br />
+교류할 언어를 선택하기만 하면, 근처의 새로운 언어 파트너를 자연스럽게 만나게 됩니다.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> 해당 저장소는 **MIDI MATE**의 **프론트엔드 개발**을 담당하는 레포지토리입니다.
 
-Currently, two official plugins are available:
+<br />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<img width="800" alt="서비스 메인 이미지" src="" />
 
-## React Compiler
+## ❗️ 주요 기능
+> **1. 맞춤형 정보 입력**
+> - 언어 :구사 가능 언어 / 학습 희망 언어 교차 선택
+> - 시간 : 희망하는 시간(30분 단위) 범위 지정
+> - 지역 : 선호 지역 선택
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+> **2. 하이브리드 매칭 시스템 : 대기열 내 조건이 일치하는 유저 간 실시간 매칭 시도**
+> - 대기 시간(Timeout) 초과 시 매칭 정보 저장으로 유도
 
-## Expanding the ESLint configuration
+> **3. 인터랙티브 UI : 매칭 성공 시, 직관적인 결과 화면 제공**
+> - 매칭 시간 및 장소 : 매칭 시간 및 장소 제안으로 유저의 고민 제거
+> - conversation Card : 처음 만났을 때의 어색함 해소를 위해 다국어 질문 카드제공( Animation을 활용한 카드 뒤집기 효과)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+> **4. 리뷰 : 복잡한 텍스트 리뷰 대신 Like/Dislike 및 키워드 선택 방식의  간편 평가 시스템**
+> - Dislike 선택 시 재매칭 되지 않음
+</div>
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📦 기술 스택
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| 역할 | 종류 |
+|:---:|:---|
+| **Library** | ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white) ![VITE](https://img.shields.io/badge/VITE-646CFF?style=for-the-badge&logo=Vite&logoColor=white) |
+| **Language** | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white) |
+| **Styling** | ![Vanilla Extract](https://img.shields.io/badge/Vanilla%20Extract-DB7093?style=for-the-badge&logoColor=white) |
+| **Data Fetching** | ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white) ![TanStack Query](https://img.shields.io/badge/TanStack%20Query-FF4154?style=for-the-badge&logo=react-query&logoColor=white) |
+| **State** | ![Zustand](https://img.shields.io/badge/Zustand-433E38?style=for-the-badge&logoColor=white) |
+| **Formatting** | ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white) ![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white) |
+| **Package** | ![pnpm](https://img.shields.io/badge/pnpm-F69220?style=for-the-badge&logo=pnpm&logoColor=white) |
+| **Deploy** | ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=Vercel&logoColor=white) |
+
+<br />
+
+---
+
+## 🚀 시작하기
+
+```bash
+# 의존성 설치
+pnpm install
+
+# 개발 서버 실행
+pnpm dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+<br />
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🌿 Git 워크플로우
+
+### 1. develop 브랜치 최신화
+```bash
+git checkout develop
+git pull origin develop
 ```
+
+### 2. 작업 브랜치 생성
+```bash
+git checkout -b feat/작업명
+```
+
+### 3. PR 전 병합
+```bash
+git checkout develop
+git pull origin develop
+git checkout feat/작업명
+git merge develop
+# 충돌 해결 후 커밋
+```
+
+<br />
+
+---
+
+## 📏 컨벤션
+
+| 📌 | 링크 |
+|:---:|:---|
+| 🌿 Style | [Style Convention](https://peach-shadow-378.notion.site/2b2d94ad82bb80fca793d32a80d43210?source=copy_link) |
+| 🪵 Coding | [Coding Convention](https://peach-shadow-378.notion.site/2b2d94ad82bb804ebc00eb8c7687919d?source=copy_link) |
+| 📋 Issue | [Issue Convention](https://peach-shadow-378.notion.site/ISSUE-2b3d94ad82bb808faff3dbad8cae874c?source=copy_link) |
+| ✅ PR & Branch | [PR&Branch Convention](https://peach-shadow-378.notion.site/PR-2b2d94ad82bb8090b890d4789b4755af?source=copy_link) |
+| 🫧 Commit | [Commit Convention](https://peach-shadow-378.notion.site/2b2d94ad82bb80d2a414e3ff78cf2ea3?source=copy_link) |
+
+
+<br />
+
+---
+
+## 📁 폴더 구조
+
+```
+├── src
+│   ├── apps                      # 앱 초기화 및 진입점
+│   ├── constant                  # 전역 상수 (Query Key, API URL)
+│   ├── pages                     # 라우트별 페이지 컴포넌트
+│   ├── router                    # 라우팅 설정
+│   │   └── constant              # 라우트 경로 상수
+│   ├── shared                    # 공유 리소스
+│   │   ├── apis                  # API 인스턴스 및 함수
+│   │   ├── assets                # 이미지, 폰트 등 정적 파일
+│   │   ├── components            # 재사용 UI 컴포넌트
+│   │   ├── hooks                 # 커스텀 훅
+│   │   ├── icons                 # SVG 아이콘 export
+│   │   ├── query                 # TanStack Query 설정
+│   │   ├── styles                # 전역 스타일 및 테마
+│   │   │   └── token             # 디자인 토큰 (color, typography 등)
+│   │   ├── types                 # TypeScript 타입 정의
+│   │   └── utils                 # 유틸리티 함수
+│   └── widgets                   # 페이지 단위 복합 컴포넌트
+```
+
+<br />
+
+---
+
+## 👥 팀원 소개
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/Sohyunnnn.png" width="130" height="130" style="border-radius: 50%;" /><br />
+      <b>박소현</b><br />
+      <a href="https://github.com/Sohyunnnn">@Sohyunnnn</a><br />
+      <sub>프론트엔드 팀장</sub>
+    </td>
+    <td align="center">
+      <img src="https://github.com/yooncandooit.png" width="130" height="130" style="border-radius: 50%;" /><br />
+      <b>김윤지</b><br />
+      <a href="https://github.com/yooncandooit">@yooncandooit</a><br />
+      <sub>프론트엔드 팀원</sub>
+    </td>
+    <td align="center">
+      <img src="https://github.com/seunghye-rain.png" width="130" height="130" style="border-radius: 50%;" /><br />
+      <b>양승혜</b><br />
+      <a href="https://github.com/seunghye-rain">@seunghye-rain</a><br />
+      <sub>프론트엔드 팀원</sub>
+    </td>
+    <td align="center">
+      <img src="https://github.com/jin-evergreen.png" width="130" height="130" style="border-radius: 50%;" /><br />
+      <b>박진석</b><br />
+      <a href="https://github.com/jin-evergreen">@jin-evergreen</a><br />
+      <sub>프론트엔드 팀원</sub>
+    </td>
+  </tr>
+</table>
+
+<br />
+
+## 💝 우리 팀의 그라운드 룰
+> - 몰라도 부끄러워 하지 않기
+> - 질문 환영
+> - 클린코드 !!
+> - 해커톤이라고 조급해하지 않기
+> - MVP를 기반으로 만들기
+> - 소통 !!!
+> - 열정 !!
+---
+
+## 📖 아티클 모음
+
+| 이름 | 아티클 |
+|:---:|:---|
+| 박소현 | |
+| 김윤지 | |
+| 양승혜 | |
+| 박진석 | |
+
+<br />
+
+---
+
+## ✨ Before & After
+
+<table>
+  <tr>
+    <th>Before</th>
+  </tr>
+  <tr>
+    <td><img width="2580" height="1720" alt="image" src="https://github.com/user-attachments/assets/0a57b71d-7234-429e-b9a7-ad3746d576b6" /></td>
+  </tr>
+</table>
