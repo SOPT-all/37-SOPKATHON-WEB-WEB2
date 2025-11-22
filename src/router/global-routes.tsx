@@ -23,6 +23,14 @@ export const globalRoutes = [
     path: ROUTES.REVIEW,
     element: <ReviewPage />,
   },
+  {
+    path: ROUTES.REVIEW,
+    element: <ReviewPage />,
+  },
+  {
+    path: ROUTES.MATCHING,
+    element: <MatchingPage />,
+  },
 ];
 
 export default globalRoutes;
