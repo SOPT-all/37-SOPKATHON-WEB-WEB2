@@ -8,9 +8,7 @@ export const buttonStyle = recipe({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    height: '100%',
     borderRadius: '4px',
-    cursor: 'pointer',
     ...themeVars.fontStyles.body2_r_16,
     ':disabled': {
       backgroundColor: themeVars.color.gray100,
