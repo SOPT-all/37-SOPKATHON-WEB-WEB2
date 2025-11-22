@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
+import { useMatchingInfo } from '@/features/matching/hooks/use-matching-info';
 import { ROUTES } from '@/router/constant/routes';
 import { getQuestions } from '@/shared/apis/questions';
 import MatchingProfile from '@/shared/assets/images/img-matching-profile.png';
@@ -13,7 +14,10 @@ import * as s from './matching-complete.css';
 
 const MatchingComplete = () => {
   const navigate = useNavigate();
+  const { wishId } = useParams<{ wishId: string }>();
   const [isFlipped, setIsFlipped] = useState(false);
+
+  const { data: matchingData, isLoading } = useMatchingInfo(Number(wishId));
 
   const handleFlip = () => {
     setIsFlipped(true);
@@ -27,10 +31,36 @@ const MatchingComplete = () => {
     }
   };
 
-  const { data } = useQuery({
+  const { data: questionsData } = useQuery({
     queryKey: ['questions'],
     queryFn: getQuestions,
     enabled: isFlipped,
+  });
+
+  if (isLoading) {
+    return (
+      <div className={s.wrapper}>
+        <div className={s.titleFont}>매칭 정보를 불러오는 중...</div>
+      </div>
+    );
+  }
+
+  if (!matchingData) {
+    return (
+      <div className={s.wrapper}>
+        <div className={s.titleFont}>매칭 정보를 불러올 수 없습니다.</div>
+      </div>
+    );
+  }
+
+  const { nativeLanguage, targetLanguage, job, startAt, location, badges } =
+    matchingData;
+
+  const formattedTime = new Date(startAt).toLocaleString('ko-KR', {
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
   });
 
   return (
@@ -58,11 +88,11 @@ const MatchingComplete = () => {
               <div className={s.basicInfo}>
                 <div className={s.basicContainer}>
                   <LabelLang color='default'>상대 언어</LabelLang>
-                  <div className={s.basicFont}>프랑스</div>
+                  <div className={s.basicFont}>{nativeLanguage}</div>
                 </div>
                 <div className={s.basicContainer}>
-                  <LabelLang color='default'>회사원</LabelLang>
-                  <div className={s.basicFont}>회사원</div>
+                  <LabelLang color='default'>직업</LabelLang>
+                  <div className={s.basicFont}>{job}</div>
                 </div>
               </div>
 
@@ -70,17 +100,25 @@ const MatchingComplete = () => {
                 <div className={s.InfoContainer}>
                   <p className={s.infoFont}>시간</p>
                   <div className={s.divider}></div>
-                  <p className={s.detailFont}>startAt</p>
+                  <p className={s.detailFont}>{formattedTime}</p>
                 </div>
                 <div className={s.InfoContainer}>
                   <p className={s.infoFont}>장소</p>
                   <div className={s.divider}></div>
-                  <p className={s.detailFont}>location</p>
+                  <p className={s.detailFont}>{location}</p>
                 </div>
                 <div className={s.InfoContainer}>
                   <p className={s.infoFont}>뱃지</p>
                   <div className={s.divider}></div>
-                  <LabelLang color='primary'>매너왕</LabelLang>
+                  {badges && badges.length > 0 ? (
+                    badges.map((badge) => (
+                      <LabelLang key={badge} color='primary'>
+                        {badge}
+                      </LabelLang>
+                    ))
+                  ) : (
+                    <LabelLang color='primary'>매너왕</LabelLang>
+                  )}
                 </div>
               </div>
             </div>
@@ -89,7 +127,7 @@ const MatchingComplete = () => {
           <FlipCard.Back>
             <div>
               <div className={s.backContainer}>
-                {data?.questions.map((q, idx) => (
+                {questionsData?.questions.map((q, idx) => (
                   <div key={`${idx}-${q}`} className={s.questionContainer}>
                     <LabelLang color='default'>{`질문${idx + 1}`}</LabelLang>
                     <p className={s.detailFont}>{q}</p>

@@ -3,4 +3,5 @@ export const QUERY_KEYS = {
   // ex) USER_INFO: 'userInfo',
   // ex) PRODUCTS: 'products',
   QUESTIONS: 'questions',
+  MATCHING_INFO: (wishId: number) => ['matching', 'info', wishId] as const,
 } as const;
