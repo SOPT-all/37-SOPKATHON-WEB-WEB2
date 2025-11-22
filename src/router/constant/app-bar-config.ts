@@ -19,7 +19,7 @@ export const APP_BAR_CONFIG: Record<string, AppBarConfig> = {
     variant: 'default',
     closeNavigateTo: ROUTES.ONBOARDING,
   },
-  [ROUTES.MATCHING_RESULT]: {
+  [ROUTES.MATCHING_COMPLETE]: {
     variant: 'default',
     closeNavigateTo: ROUTES.ONBOARDING,
   },

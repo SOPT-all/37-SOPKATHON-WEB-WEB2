@@ -1,5 +1,6 @@
 import { ROUTES } from './constant/routes';
 import {
+  MatchingComplete,
   MatchingPage,
   MatchingProgressPage,
   OnboardingPage,

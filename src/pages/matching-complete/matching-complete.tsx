@@ -1,11 +1,13 @@
-import FlipCard from '@/shared/components/flip-card/flip-card';
-import MatchingProfile from '@/shared/assets/images/img-matching-profile.png';
-import * as s from './matching-complete.css';
-import { useState } from 'react';
-import Button from '@/shared/components/button/button';
-import LabelLang from '@/shared/components/label-lang/label-lang';
 import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
+
 import { getQuestions } from '@/shared/apis/questions';
+import MatchingProfile from '@/shared/assets/images/img-matching-profile.png';
+import Button from '@/shared/components/button/button';
+import FlipCard from '@/shared/components/flip-card/flip-card';
+import LabelLang from '@/shared/components/label-lang/label-lang';
+
+import * as s from './matching-complete.css';
 
 const MatchingComplete = () => {
   const [isFlipped, setIsFlipped] = useState(false);

@@ -2,6 +2,6 @@ export const ROUTES = {
   ONBOARDING: '/',
   MATCHING: '/matching',
   MATCHING_PROGRESS: '/matching-progress',
-  MATCHING_RESULT: '/matching-result',
+  MATCHING_COMPLETE: '/matching-complete',
   REVIEW: '/review',
 } as const;
