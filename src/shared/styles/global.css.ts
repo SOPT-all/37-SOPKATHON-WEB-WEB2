@@ -34,4 +34,5 @@ export const rootStyle = style({
   minWidth: 'var(--min-width)',
   maxWidth: 'var(--max-width)',
   backgroundColor: 'white',
+  padding: '1.6rem',
 });
