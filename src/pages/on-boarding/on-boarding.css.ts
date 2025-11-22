@@ -34,8 +34,5 @@ export const buttonContainer = style({
   display: 'flex',
   gap: '0.8rem',
   height: '4.8rem',
-  position: 'fixed',
-  bottom: '2rem',
-  right: '2rem',
-  left: '2rem',
+  marginTop: '3.5rem',
 });
