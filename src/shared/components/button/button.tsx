@@ -1,6 +1,6 @@
 import type { ButtonProps } from '@/shared/types/button';
 
-import { buttonStyle } from './Button.css';
+import { buttonStyle } from './Button.css.ts';
 
 const Button = ({
   children,
