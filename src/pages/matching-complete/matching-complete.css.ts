@@ -1,18 +1,24 @@
 import { style } from '@vanilla-extract/css';
+
 import { themeVars } from '@/shared/styles/theme.css';
+
+const APP_BAR_HEIGHT = '5.6rem';
 
 export const wrapper = style({
   display: 'flex',
-  flex: 1,
   flexDirection: 'column',
+  height: `calc(100vh - ${APP_BAR_HEIGHT})`,
+  justifyContent: 'center',
+  alignItems: 'center',
 });
+
 export const infoContainer = style({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
   gap: '32px',
-  padding: '29px 32px',
+  padding: '29px 0',
   backgroundColor: themeVars.color.primary50,
   borderRadius: '8px',
   border: `1px solid ${themeVars.color.gray200}`,
@@ -31,13 +37,18 @@ export const symbolImage = style({
 
 export const basicInfo = style({
   display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
   gap: '12px',
+  width: '100%',
+  padding: '0 32px',
 });
 
 export const basicContainer = style({
   display: 'flex',
   gap: '8px',
   alignItems: 'center',
+  flexShrink: 0,
 });
 
 export const basicFont = style({
@@ -77,12 +88,12 @@ export const backContainer = style({
   backgroundColor: themeVars.color.primary50,
   borderRadius: '8px',
   border: `1px solid ${themeVars.color.gray200}`,
-  padding: '48px 50.5px',
+  padding: '48px 20px',
 });
 
 export const cardContainer = style({
   padding: '0 42px',
-  height: '100%',
+  width: '100%',
 });
 
 export const statusFont = style({
@@ -95,7 +106,6 @@ export const statusFont = style({
 
 export const titleFont = style({
   ...themeVars.fontStyles.head1_sb_22,
-  marginTop: '8px',
   display: 'block',
 });
 
