@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import { OnBoardingLogoIcon } from '@/shared/assets/icons';
 import Button from '@/shared/components/button/button';
 
@@ -11,6 +13,15 @@ import {
 } from './on-boarding.css';
 
 const OnBoardingPage = () => {
+  const navigate = useNavigate();
+
+  const handleLoadHistory = () => {
+    navigate('/history');
+  };
+
+  const handleNewInfo = () => {
+    navigate('/write');
+  };
   return (
     <div className={pageContainer}>
       <div className={contentWrapper}>
@@ -25,8 +36,10 @@ const OnBoardingPage = () => {
       </div>
 
       <div className={buttonContainer}>
-        <Button style={{ flex: 1 }}>기록 불러오기</Button>
-        <Button size='large' style={{ flex: 1 }}>
+        <Button style={{ flex: 1 }} onClick={handleLoadHistory}>
+          기록 불러오기
+        </Button>
+        <Button size='large' style={{ flex: 1 }} onClick={handleNewInfo}>
           새 정보 입력
         </Button>
       </div>
