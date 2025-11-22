@@ -4,11 +4,10 @@ import { themeVars } from '@/shared/styles/theme.css';
 
 export const flipCardContainer = style({
   width: width.full,
-  backgroundColor: themeVars.color.primary50,
-  padding: '29px 32px',
-  borderRadius: '8px',
-  border: `1px solid ${themeVars.color.gray200}`,
+  perspective: '800px',
   position: 'relative',
+  height: '364px',
+  marginBlock: '41px',
 });
 
 export const flipCard = style({
@@ -16,6 +15,7 @@ export const flipCard = style({
   position: 'relative',
   transformStyle: 'preserve-3d',
   transition: 'transform 0.6s ease',
+  height: '100%',
 });
 
 export const flipped = style({
@@ -23,6 +23,7 @@ export const flipped = style({
 });
 
 export const face = style({
+  position: 'absolute',
   inset: 0,
   backfaceVisibility: 'hidden',
   display: 'flex',

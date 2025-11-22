@@ -15,7 +15,13 @@ const Layout = () => {
     <div className={rootStyle}>
       <Suspense fallback={<Loading />}>
         <AppBar variant={isOnboarding ? 'onboarding' : 'default'} />
-        <main>
+        <main
+          style={{
+            display: 'flex',
+            height: '100%',
+            flexDirection: 'column',
+          }}
+        >
           <Outlet />
         </main>
       </Suspense>
