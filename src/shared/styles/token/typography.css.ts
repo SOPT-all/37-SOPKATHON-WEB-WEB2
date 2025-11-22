@@ -22,6 +22,6 @@ export const typography = {
   },
   letterSpacing: {
     none: '0',
-    3: '-3%',
+    3: '-3',
   },
 } as const;
