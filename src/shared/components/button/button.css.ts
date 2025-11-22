@@ -8,7 +8,8 @@ export const buttonStyle = recipe({
     justifyContent: 'center',
     alignItems: 'center',
     width: themeVars.width.full,
-    borderRadius: '4px',
+    borderRadius: '0.4rem',
+    transition: 'all 0.2s ease',
     ...themeVars.fontStyles.body2_r_16,
     ':disabled': {
       backgroundColor: themeVars.color.gray100,
@@ -20,13 +21,16 @@ export const buttonStyle = recipe({
   variants: {
     size: {
       medium: {
+        padding: '1.2rem 1.6rem',
         backgroundColor: themeVars.color.white,
         color: themeVars.color.black,
         border: `1px solid ${themeVars.color.gray400}`,
       },
       large: {
+        padding: '1.6rem',
         backgroundColor: themeVars.color.primaryBlack,
         color: themeVars.color.primary500,
+        border: 'none',
       },
     },
 
@@ -34,8 +38,9 @@ export const buttonStyle = recipe({
       true: {
         backgroundColor: themeVars.color.white,
         color: themeVars.color.black,
-        borderColor: themeVars.color.primary700,
+        border: `1px solid ${themeVars.color.primary700}`,
       },
+      false: {},
     },
   },
 
