@@ -1,0 +1,34 @@
+enable:
+  issues: true
+  prs: true
+
+labels:
+  "⚙️ Setting":
+    include: ['\bSetting\b', '\bsetting\b', '\bSETTING\b']
+
+  "✨ Feature":
+    include: ['\bFeat\b', '\bFEAT\b', '\bfeat\b']
+
+  "🌐 Deploy":
+    include: ['\bDeploy\b', '\bDEPLOY\b', '\bdeploy\b']
+
+  "🎨 Design":
+    include: ['\bDesign\b', '\bDESIGN\b', '\bdesign\b']
+
+  "🐞 Fix":
+    include: ['\bFix\b', '\bfix\b', '\bFIX\b', '\bBug\b', '\bbug\b', '\bBUG\b']
+
+  "📄 Docs":
+    include: ['\bDocs\b', '\bDOCS\b', '\bdocs\b']
+
+  "📬 API":
+    include: ['\bAPI\b', '\bApi\b', '\bapi\b']
+
+  "🔨 Chore":
+    include: ['\bCHORE\b', '\bChore\b', '\bchore\b']
+
+  "🛠️ Refactor":
+    include: ['\bRefactor\b', '\bREFACTOR\b', '\brefactor\b']
+
+  "🚀 Init":
+    include: ['\bInit\b', '\bINIT\b', '\binit\b']
