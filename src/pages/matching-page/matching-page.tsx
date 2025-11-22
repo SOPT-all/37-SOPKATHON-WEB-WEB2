@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { ROUTES } from '@/router/constant/routes';
 import MatchingForm from '@/widgets/matching-form/matching-form';
 import type { MatchingFormData } from '@/widgets/matching-form/types';
 
@@ -11,7 +12,7 @@ const MatchingPage = () => {
 
   const handleFormSubmit = useCallback(
     (_data: MatchingFormData) => {
-      navigate('/matching/waiting');
+      navigate(ROUTES.MATCHING_PROGRESS);
     },
     [navigate],
   );

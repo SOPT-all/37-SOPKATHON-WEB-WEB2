@@ -1,7 +1,12 @@
 import { lazy } from 'react';
 
-export const HomePage = lazy(() => import('@/pages/home'));
-export const ReviewPage = lazy(() => import('@/pages/review-page/review-page'));
-export const MatchPage = lazy(
+export const OnboardingPage = lazy(
+  () => import('@/pages/on-boarding/on-boarding'),
+);
+export const MatchingPage = lazy(
   () => import('@/pages/matching-page/matching-page'),
 );
+export const MatchingProgressPage = lazy(
+  () => import('@/pages/matching-progress/matching-progress'),
+);
+export const ReviewPage = lazy(() => import('@/pages/review-page/review-page'));

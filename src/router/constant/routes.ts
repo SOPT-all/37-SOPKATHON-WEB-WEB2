@@ -1,5 +1,7 @@
 export const ROUTES = {
   ONBOARDING: '/',
-  REVIEW: '/review',
   MATCHING: '/matching',
-};
+  MATCHING_PROGRESS: '/matching-progress',
+  MATCHING_RESULT: '/matching-result',
+  REVIEW: '/review',
+} as const;

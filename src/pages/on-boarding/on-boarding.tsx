@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
+import { ROUTES } from '@/router/constant/routes';
 import { OnBoardingLogoIcon } from '@/shared/assets/icons';
 import Button from '@/shared/components/button/button';
 
@@ -16,11 +17,11 @@ const OnBoardingPage = () => {
   const navigate = useNavigate();
 
   const handleLoadHistory = () => {
-    navigate('/history');
+    navigate(ROUTES.MATCHING);
   };
 
   const handleNewInfo = () => {
-    navigate('/write');
+    navigate(ROUTES.MATCHING);
   };
   return (
     <div className={pageContainer}>

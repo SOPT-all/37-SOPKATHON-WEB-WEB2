@@ -17,7 +17,7 @@ const ReviewPage = () => {
 
   const handleModalClose = () => {
     setIsModalOpen(false);
-    navigate(ROUTES.HOME);
+    navigate(ROUTES.ONBOARDING);
   };
 
   return (

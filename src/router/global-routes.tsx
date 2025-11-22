@@ -1,20 +1,27 @@
-import MatchingPage from '@/pages/matching-page/matching-page';
-
 import { ROUTES } from './constant/routes';
-import { HomePage, ReviewPage } from './lazy';
+import {
+  MatchingPage,
+  MatchingProgressPage,
+  OnboardingPage,
+  ReviewPage,
+} from './lazy';
 
 export const globalRoutes = [
   {
     path: ROUTES.ONBOARDING,
-    element: <HomePage />,
-  },
-  {
-    path: ROUTES.REVIEW,
-    element: <ReviewPage />,
+    element: <OnboardingPage />,
   },
   {
     path: ROUTES.MATCHING,
     element: <MatchingPage />,
+  },
+  {
+    path: ROUTES.MATCHING_PROGRESS,
+    element: <MatchingProgressPage />,
+  },
+  {
+    path: ROUTES.REVIEW,
+    element: <ReviewPage />,
   },
 ];
 
