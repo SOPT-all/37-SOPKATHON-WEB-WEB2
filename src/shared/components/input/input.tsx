@@ -1,4 +1,5 @@
 import type { InputHTMLAttributes } from 'react';
+import * as s from './input.css';
 
 type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
@@ -12,7 +13,7 @@ const Input = ({
 }: InputProps) => {
   return (
     <input
-      className={className}
+      className={s.inputStyle}
       type={type}
       value={value}
       onChange={onChange}
