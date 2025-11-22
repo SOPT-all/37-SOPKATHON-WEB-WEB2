@@ -3,6 +3,7 @@ import Button from '@/shared/components/button/button';
 
 import {
   buttonContainer,
+  contentWrapper,
   logoContainer,
   pageContainer,
   pointColor,
@@ -12,7 +13,7 @@ import {
 const OnBoardingPage = () => {
   return (
     <div className={pageContainer}>
-      <div>
+      <div className={contentWrapper}>
         <div className={textContainer}>
           <p>점심 시간 30분</p>
           <p className={pointColor}>다른 언어로</p>
@@ -22,9 +23,12 @@ const OnBoardingPage = () => {
           <img src={OnBoardingLogoIcon} alt='온보딩 로고' />
         </div>
       </div>
+
       <div className={buttonContainer}>
-        <Button>기록 불러오기</Button>
-        <Button size='large'>새 정보 입력</Button>
+        <Button style={{ flex: 1 }}>기록 불러오기</Button>
+        <Button size='large' style={{ flex: 1 }}>
+          새 정보 입력
+        </Button>
       </div>
     </div>
   );
