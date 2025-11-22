@@ -8,9 +8,19 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   selected?: boolean;
 }
 
-const Button = ({ children, size, selected, ...props }: ButtonProps) => {
+const Button = ({
+  children,
+  size,
+  selected,
+  className,
+  ...props
+}: ButtonProps) => {
+  const combinedClassName = className
+    ? `${buttonStyle({ size, selected })} ${className}`
+    : buttonStyle({ size, selected });
+
   return (
-    <button {...props} className={buttonStyle({ size, selected })}>
+    <button {...props} className={combinedClassName}>
       {children}
     </button>
   );
