@@ -4,3 +4,7 @@ export { default as DeleteIcon } from './DeleteIcon.svg';
 export { default as MainLogo } from './main-logo.svg';
 export { default as OnBoardingLogoIcon } from './onboarding-logo.svg';
 export { default as ProfileIcon } from './profile.svg';
+export { default as thumbsDown_activeIcon } from './thumbsDown_active.svg';
+export { default as thumbsDown_inactiveIcon } from './thumbsDown_inactive.svg';
+export { default as thumbsUp_activeIcon } from './thumbsUp_active.svg';
+export { default as thumbsUp_inactiveIcon } from './thumbsUp_inactive.svg';
