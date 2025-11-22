@@ -11,6 +11,9 @@ globalStyle(':root', {
 });
 
 globalStyle('html, body', {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
   position: 'relative',
   width: themeVars.width.full,
   margin: '0',
@@ -35,4 +38,5 @@ export const rootStyle = style({
   maxWidth: 'var(--max-width)',
   backgroundColor: 'white',
   padding: '1.6rem',
+  boxShadow: `0 0.8rem 3.2rem ${themeVars.color.gray500}`,
 });
