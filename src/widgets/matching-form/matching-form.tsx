@@ -12,11 +12,30 @@ import type { MatchingFormData } from './types';
 
 interface MatchingFormProps {
   onSubmit: (data: MatchingFormData) => void;
+  initialData?: {
+    nativeLanguage?: string;
+    targetLanguage?: string;
+    job?: string;
+  };
 }
 
-const MatchingForm = ({ onSubmit }: MatchingFormProps) => {
-  const [formData, setFormData] = useState<MatchingFormData>(INITIAL_FORM_DATA);
-
+const MatchingForm = ({ onSubmit, initialData }: MatchingFormProps) => {
+  const LANGUAGE_MAP: Record<string, string> = {
+    ENGLISH: '영어',
+    GERMAN: '독일어',
+    FRENCH: '프랑스어',
+    DUTCH: '네덜란드어',
+  };
+  const [formData, setFormData] = useState<MatchingFormData>({
+    ...INITIAL_FORM_DATA,
+    job: initialData?.job ?? '',
+    speakLanguages: initialData?.nativeLanguage
+      ? [LANGUAGE_MAP[initialData.nativeLanguage]]
+      : [],
+    learnLanguages: initialData?.targetLanguage
+      ? [LANGUAGE_MAP[initialData.targetLanguage]]
+      : [],
+  });
   const handleLanguageToggle = useCallback(
     (type: 'speakLanguages' | 'learnLanguages', language: string) => {
       setFormData((prev) => {
