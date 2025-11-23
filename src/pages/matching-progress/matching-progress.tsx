@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import { ROUTES } from '@/router/constant/routes';
 import { MainLogo } from '@/shared/assets/icons';
 
 import {
@@ -14,13 +13,21 @@ import {
 
 const MatchingProgressPage = () => {
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const wishId = state?.wishId;
 
   useEffect(() => {
+    if (!wishId) {
+      console.error('wishId가 없습니다');
+      return;
+    }
+
     const timer = setTimeout(() => {
-      navigate(ROUTES.MATCHING_COMPLETE);
+      navigate(`/matching-complete/${wishId}`);
     }, 3000);
+
     return () => clearTimeout(timer);
-  }, [navigate]);
+  }, [navigate, wishId]);
 
   return (
     <div className={pageContainer}>

@@ -1,4 +1,3 @@
-// src/shared/apis/matching/matching.ts
 import axiosInstance from '../instance';
 
 export interface MatchingInfoResponse {
