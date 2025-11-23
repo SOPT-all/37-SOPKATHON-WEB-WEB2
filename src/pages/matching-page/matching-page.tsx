@@ -28,15 +28,19 @@ const MatchingPage = () => {
       const apiPayload: MatchingFormRequest = {
         nativeLanguage: KOREAN_TO_CODE[formData.speakLanguages[0]] || '',
         targetLanguage: KOREAN_TO_CODE[formData.learnLanguages[0]] || '',
-
         location: formData.region,
         timeSlot: formData.timeSlot,
         job: formData.job,
+        wishId: 0,
       };
 
       mutate(apiPayload, {
-        onSuccess: () => {
-          navigate(ROUTES.MATCHING_PROGRESS);
+        onSuccess: (response) => {
+          const wishId = response.wishId;
+
+          navigate(ROUTES.MATCHING_PROGRESS, {
+            state: { wishId },
+          });
         },
       });
     },

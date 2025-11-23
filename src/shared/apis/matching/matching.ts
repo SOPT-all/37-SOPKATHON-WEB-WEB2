@@ -1,4 +1,4 @@
-import { apiGet } from '../method';
+import axiosInstance from '../instance';
 
 export interface MatchingInfoResponse {
   nativeLanguage: string;
@@ -9,11 +9,15 @@ export interface MatchingInfoResponse {
   badges: string[];
 }
 
-/**
- * 매칭된 상대 정보 조회 API
- * @param wishId - 매칭 요청 ID
- * @returns 매칭된 상대방의 정보
- */
+interface MatchingApiWrapper<T> {
+  status: number;
+  message: string;
+  data: T;
+}
+
 export const getMatchingInfo = async (wishId: number) => {
-  return apiGet<MatchingInfoResponse>(`/matching/${wishId}`);
+  const response = await axiosInstance.get<
+    MatchingApiWrapper<MatchingInfoResponse>
+  >(`/matching/${wishId}`);
+  return response.data.data;
 };
