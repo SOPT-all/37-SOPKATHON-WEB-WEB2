@@ -36,8 +36,7 @@ const MatchingPage = () => {
 
       mutate(apiPayload, {
         onSuccess: (response) => {
-          // response에서 wishId를 가져오거나, 없다면 임시로 1 사용
-          const wishId = response?.wishId || 1;
+          const wishId = response.wishId;
 
           navigate(ROUTES.MATCHING_PROGRESS, {
             state: { wishId },

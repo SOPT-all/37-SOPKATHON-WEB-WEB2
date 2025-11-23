@@ -7,6 +7,7 @@ interface onboardingResponse {
 }
 
 export interface MatchingFormRequest {
+  wishId: number;
   nativeLanguage: string;
   targetLanguage: string;
   location: string;
@@ -14,6 +15,9 @@ export interface MatchingFormRequest {
   job: string;
 }
 
+export interface MatchingFormResponse {
+  wishId: number;
+}
 export const getOnboarding = async () => {
   return apiGet<onboardingResponse>(`/onboarding`);
 };
