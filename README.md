@@ -189,15 +189,15 @@ git merge develop
 <table>
   <tr>
     <th>Before</th>
+    <th>After</th>
   </tr>
   <tr>
-    <td><img width="2580" height="1720" alt="image" src="https://github.com/user-attachments/assets/0a57b71d-7234-429e-b9a7-ad3746d576b6" /></td>
- <td>
-</td>
-  <tr>
-    <th>After</th>
     <td>
-      <img width="2580" height="1720" alt="image" src="https://github.com/user-attachments/assets/0a57b71d-7234-429e-b9a7-ad3746d576b6" />
+      <img width="450" alt="before" src="https://github.com/user-attachments/assets/0a57b71d-7234-429e-b9a7-ad3746d576b6" />
+    </td>
+    <td>
+      <img width="450" alt="after" src="https://github.com/user-attachments/assets/c1170129-2496-4020-afd8-c99c242dec55" />
     </td>
   </tr>
 </table>
+
