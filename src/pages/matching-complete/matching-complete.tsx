@@ -37,6 +37,15 @@ const MatchingComplete = () => {
     enabled: isFlipped,
   });
 
+  // 언어 코드를 한국어로 변환
+  const CODE_TO_KOREAN: Record<string, string> = {
+    ENGLISH: '영어',
+    GERMAN: '독일어',
+    FRENCH: '프랑스어',
+    DUTCH: '네덜란드어',
+    KOREAN: '한국어',
+  };
+
   if (isLoading) {
     return (
       <div className={s.wrapper}>
@@ -53,8 +62,7 @@ const MatchingComplete = () => {
     );
   }
 
-  const { nativeLanguage, targetLanguage, job, startAt, location, badges } =
-    matchingData;
+  const { nativeLanguage, job, startAt, location, badges } = matchingData;
 
   const formattedTime = new Date(startAt).toLocaleString('ko-KR', {
     month: 'long',
@@ -88,11 +96,13 @@ const MatchingComplete = () => {
               <div className={s.basicInfo}>
                 <div className={s.basicContainer}>
                   <LabelLang color='default'>상대 언어</LabelLang>
-                  <div className={s.basicFont}>{nativeLanguage}</div>
+                  <div className={s.basicFont}>
+                    {CODE_TO_KOREAN[nativeLanguage] || nativeLanguage}
+                  </div>
                 </div>
                 <div className={s.basicContainer}>
-                  <LabelLang color='default'>회사원</LabelLang>
-                  <div className={s.basicFont}>회사원</div>
+                  <LabelLang color='default'>직업</LabelLang>
+                  <div className={s.basicFont}>{job}</div>
                 </div>
               </div>
 
